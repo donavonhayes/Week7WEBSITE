@@ -1,9 +1,7 @@
+
 body {
-    /* changing the whole background color of all pages */
+
     background-color: rgb(88, 143, 177);
-    /* whole body adjusts to height and width of screen */
-    width: auto;
-    height: auto;
     /* adding  margin & padding all around body edges so the content isn't right on the edge */
     padding: 10px;
     margin: 15px;
@@ -14,10 +12,8 @@ body {
 
 
 .title {
-    /* adding colored border to side of text */
     border-left: 10px solid rgb(40, 35, 170);
-    /* tried something below but I didn't like how it ended up so I just commented out */
-
+]
     /* border-bottom-left-radius: 50px;
     border-top-left-radius: 50px; */
 
@@ -40,176 +36,5 @@ body {
     padding: 15px 15px 5px 5px;
 }
 
-.top-navbar, ul {
-    /* adding flex capability */
-    display: flex;
-    /* This sets the flex grow factor which helps spread out ul items within navbar */
-    flex-grow: 1;
-    /* this adds the space in between ul elements evenly */
-    justify-content: space-around;
-    /* helps ul items become multi-link if the screen is narrow */
-    flex-wrap: wrap;
-}
 
-ul, li {
-    /* resets margins to 0 */
-    margin: 0px;
-    /* takes away original bullet points that were on the ul item */
-    list-style-type: none;
-}
-
-a:hover {
-    /* changes the color of the navigation links when hovered over */
-    color: blue;
-}
-
-main {
-    /* align all text to the center of elements */
-    text-align: center;
-    /* adding border, border radius, padding, and margin to whole main portion of site */
-    border-style: solid;
-    border-radius: 10px;
-    padding: 5px;
-    margin: 5px;
-}
-
-#programmer-gif {
-    /* adding dimension rules to image */
-    height: auto;
-    width: 100%;
-    /* image will be no larger than 50% */
-    /* max-width: 50%; */
-    /* image will be no smaller than 25% */
-    min-width: 100px;
-}
-
-#headshot {
-    /* adding dimension rules to image */
-    height: auto;
-    width: 100%;
-    min-width: 100px;
-}
-
-#coding-screen {
-    /* adding dimension rules to image */
-    height: auto;
-    width: 100%;
-    min-width: 100px;
-}
-
-/* I'm not exactly sure what this is doing, I think it's setting a rule if the display is up to a certain resolution */
-@media only screen
-   and (max-width : 2880px) 
-   and (max-height : 5120px) { 
-    /* adding  */
-   /* Styles here */
-   #programmer-gif {
-    height: auto;
-    width: 400px;    
-    }
-    #headshot {
-        height: auto;
-        width: 400px;
-    }   
-    #coding-screen {
-        height: auto;
-        width: 400px;
-    }   
-}
-
-/* I think this is making a rule that if an image is on a screen that's as small as 390px then the media should be 300px wide */
-@media only screen
-   and (min-width : 390px) {
-   /* Styles here */
-   #programmer-gif {
-    height: auto;
-    width: 300px;
-   }
-   #headshot {
-    height: auto;
-    width: 300px;
-   }
-   #coding-screen {
-    height: auto;
-    width: 300px;
-   }
-}
-
-form {
-    /* adding padding so the form in navbar is centered */
-    padding: 10px;
-    /* resetting margin to 0 */
-    margin: 0;
-}
-
-.about-table {
-    /* aligning items to center */
-    text-align: center;
-    /* enabling grid capabilities */
-    display: grid;
-    width: 100%;
-}
-
-.about-table tr{
-    /* adding grid capabilities to rows of the table */
-    display: grid;
-    /* I think this is creating columns and rows in the grid that react similarly to flex  */
-    grid-template-columns: repeat(auto-fill, 200px);
-    grid-template-rows: repeat(1, 100px);
-    /* table spans 100% across it's element */
-    width: 100%;
-    /* creating space in between column gaps */
-    column-gap: 10px;
-}
-
-
-/* I thought I needed this but I didn't */
-
-/* .about-table th td {
-    text-align: center;
-} */
-
-
-/* I thought I needed this but I didn't */
-
-/* footer {
-    display: flex contents;
-} */
-
-
-footer, p {
-    /* aligning text to center of page */
-    text-align: center;
-    /* removing padding and adding margin to move element away from main border */
-    padding: 0;
-    margin: 20px;
-}
-
-/* table on contact page */
-#site-links {
-    /* aligning table in the middle and adding margin to just to top */
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 25px;
-}
-
-
-.contact-text-box {
-    /* This adjusts the dimensions of the text box  */
-    height: 100px;
-    width: 50%;
-    min-width: 50px;
-}
-
-
-.active-link a {
-    /* This styles list links in the navbar to increase size and change color when active */
-    color: rgb(255, 255, 255);
-    font-size: 150%;
-}
-
-
-#nav-search {
-    /* This will help center the search bar inside the navbar element */
-    margin-top: -5px;
 }
