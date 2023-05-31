@@ -6,3 +6,10 @@ body {
 main-heading{
 color: gold
 }
+
+menu-block{
+    background-color: darkseagreen;
+    border-style: solid;
+    border-color: black;
+    border-radius: 5px;
+}
