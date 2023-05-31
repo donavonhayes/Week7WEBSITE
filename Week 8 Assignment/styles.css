@@ -49,3 +49,45 @@ th, td{
 tr:nth-child(even) {
 background-color: orangered;
 }
+
+body {
+    background-color: beige;
+        }
+  
+  
+    h1 {
+        color: gold;
+    }
+  
+    div {
+        background-color: darkseagreen;
+        border-style: solid;
+        border-color: black;
+        border-radius: 5px;
+    }
+    table{
+      border-collapse: collapse;
+      width:100%;
+    }
+  
+    th, td{
+      padding:8px;
+      text-align:left;
+      border-bottom: 1px solid black
+    }
+  
+   tr:nth-child(even) {
+    background-color: grey;
+   }
+  
+   tr:hover {
+    background-color: orange;
+   }
+  
+   form{
+    background-color: grey;
+   }
+  
+   form:hover{
+    background-color: orange;
+   }
