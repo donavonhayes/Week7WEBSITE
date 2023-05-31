@@ -1,40 +1,4 @@
-
 body {
-
-    background-color: rgb(88, 143, 177);
-    /* adding  margin & padding all around body edges so the content isn't right on the edge */
-    padding: 10px;
-    margin: 15px;
-    /* changing font for all pages */
-    font-family:Arial, Helvetica, sans-serif;    
-    /* text-align: center; */
-}
-
-
-.title {
-    border-left: 10px solid rgb(40, 35, 170);
-]
-    /* border-bottom-left-radius: 50px;
-    border-top-left-radius: 50px; */
-
-    /* moving border away from left side of navbar and rounding out edges */
-    border-radius: 10px;
-    padding-left: 20px;
-    margin-bottom: 10px;
-    margin-left: 10px;
-    /* enlarging font size of title on each page */
-    font-size: x-large; 
-}
-
-.top-navbar {
-    /* changing background color of navbar */
-    background-color:rgba(154, 154, 154, 0.6);
-    /* changes title text color to blue */
-    color: rgb(40, 35, 170);
-    /* rounding edges, and adding padding */
-    border-radius: 10px;
-    padding: 15px 15px 5px 5px;
-}
-
-
+    background-color: beige;
+    font-size: 20px;
 }
