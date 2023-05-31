@@ -3,11 +3,11 @@ body {
     font-size: 20px;
 }
 
-main-heading{
+h1{
 color: gold
 }
 
-menu-block{
+div{
     background-color: darkseagreen;
     border-style: solid;
     border-color: black;
