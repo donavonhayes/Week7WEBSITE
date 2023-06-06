@@ -1,2 +1,2 @@
-let buttonsbyclassname= document.getbuttonbyclassName('my-class');
-console.log(buttonbytag);
+let buttonsbyCCSSelector= document.querySelectorAll('button.my-class')
+console.log(buttonbyCCSSelector);
