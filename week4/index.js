@@ -1,2 +1,2 @@
-let button = document.getElementById('my-button');
+let buttonByTag= document.getElementByTagName('button');
 console.log(button);
