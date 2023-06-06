@@ -1,2 +1,2 @@
-let buttonsbyclassname= document.getbuttonbyclassName('button');
+let buttonsbyclassname= document.getbuttonbyclassName('my-class');
 console.log(buttonbytag);
