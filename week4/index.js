@@ -39,12 +39,10 @@ document.getElementById('add').addEventListener('click', () => {
     row.insertCell(0).innerHTML = document.getElementById('Artist').value;
 	console.log('row.insertCell(0) =', document.getElementById('Artist').value);
 
-    row.insertCell(1).innerHTML = document.getElementById('Songs').value;
+    row.insertCell(1).innerHTML = document.getElementById('Song').value;
 	console.log('row.insertCell(1) =', document.getElementById('Song').value);
 
 
-    let actions = row.insertCell(3);
-    console.log('variable "actions" =', actions);
 
 	
     actions.appendChild(createDeleteButton(id++));
