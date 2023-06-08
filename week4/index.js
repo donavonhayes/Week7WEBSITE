@@ -26,7 +26,7 @@ document.getElementById('add').addEventListener('click', () => {
     let createdVehicle = new Text();
 	console.log('variable createdPlaylist empty string =', createdPlaylist);
     
-    let table = document.getElementById('songs-table');
+    let table = document.getElementById('song-table');
     console.log('variable table = This is new container from input', table);
 
     let row = table.insertRow(1);
