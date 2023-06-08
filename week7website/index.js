@@ -32,10 +32,10 @@ let id = 0;
 document.getElementById('add').addEventListener('click', () => {
 	// This assigns a new Text node to the variable createdVehicle
     let createdVehicle = new Text();
-	console.log('variable createdVehicle empty string =', createdVehicle);
+	console.log('variable createdPlaylist empty string =', createdPlaylist);
     
     // This stamps out a new container from the input text which will include the table header and code below
-    let table = document.getElementById('vehicle-table');
+    let table = document.getElementById('songs-table');
     console.log('variable table = This is new container from input', table);
 
 	// This is row 1 because row 0 is made above, which includes the th as row 0
@@ -47,19 +47,17 @@ document.getElementById('add').addEventListener('click', () => {
 	console.log('row.setAttribute: sets new ID to added item', 'id', `item-${id}`)
 
 	// This takes the text from input new-vehicle-make and inserts it into column 0
-    row.insertCell(0).innerHTML = document.getElementById('new-vehicle-make').value;
-	console.log('row.insertCell(0) =', document.getElementById('new-vehicle-make').value);
+    row.insertCell(0).innerHTML = document.getElementById('new-artists').value;
+	console.log('row.insertCell(0) =', document.getElementById('new-artists').value);
 
 	// This takes the text from input new-vehicle-model and inserts it into column 1
-    row.insertCell(1).innerHTML = document.getElementById('new-vehicle-model').value;
-	console.log('row.insertCell(1) =', document.getElementById('new-vehicle-model').value);
+    row.insertCell(1).innerHTML = document.getElementById('new-songs').value;
+	console.log('row.insertCell(1) =', document.getElementById('new-songs').value);
 
-	// This takes the text from input new-vehicle-year and inserts it into column 2
-    row.insertCell(2).innerHTML = document.getElementById('new-vehicle-year').value;
-	console.log('row.insertCell(2) =', document.getElementById('new-vehicle-year').value);
+
 
 	// This adds an additional column space for the delete button
-    let actions = row.insertCell(3);
+    let actions = row.insertCell(2);
     console.log('variable "actions" =', actions);
 
 	// This adds the delete button and it's JS functionality into the html code
@@ -68,9 +66,8 @@ document.getElementById('add').addEventListener('click', () => {
 	console.log('This appendsChild ', createDeleteButton(id++));
 
 	// The 3 lines below reset text input boxes back to empty strings after submitting data
-    document.getElementById('new-vehicle-make').value = '';
-    document.getElementById('new-vehicle-model').value = '';
-    document.getElementById('new-vehicle-year').value = '';
+    document.getElementById('new-artists').value = '';
+    document.getElementById('new-songs').value = '';
 });
 
 function createDeleteButton(id) {
