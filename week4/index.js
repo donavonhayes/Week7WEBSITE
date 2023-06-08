@@ -11,9 +11,7 @@ window.addEventListener("keydown", function (event) {
 
         case "Enter":
 			console.log('-----Enter key was pressed-----');
-			// Do something for "enter" or "return" key press.
-			// allows the "Enter" key to submit all HTML elements tags 'label' to submit data
-			this.document.getElementsByTagName('label');
+\			this.document.getElementsByTagName('label');
 			this.document.getElementById('add').click();
 			break;
 		default:
