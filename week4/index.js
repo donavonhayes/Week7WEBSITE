@@ -32,7 +32,7 @@ let id = 0;
 document.getElementById('add').addEventListener('click', () => {
 	// This assigns a new Text node to the variable createdVehicle
     let createdVehicle = new Text();
-	console.log('variable createdVehicle empty string =', createdVehicle);
+	console.log('variable createdPlaylist empty string =', createdPlaylist);
     
     // This stamps out a new container from the input text which will include the table header and code below
     let table = document.getElementById('songs-table');
@@ -47,15 +47,15 @@ document.getElementById('add').addEventListener('click', () => {
     row.setAttribute('id', `item-${id}`);
 	console.log('row.setAttribute: sets new ID to added item', 'id', `item-${id}`)
 
-	// This takes the text from input new-vehicle-make and inserts it into column 0
+	// This takes the text from input artist and inserts it into column 0
     row.insertCell(0).innerHTML = document.getElementById('Artist').value;
 	console.log('row.insertCell(0) =', document.getElementById('Artist').value);
 
-	// This takes the text from input new-vehicle-model and inserts it into column 1
+	// This takes the text from input song and inserts it into column 1
     row.insertCell(1).innerHTML = document.getElementById('Songs').value;
 	console.log('row.insertCell(1) =', document.getElementById('Song').value);
 
-    // This takes the text from input new-vehicle-year and inserts it into column 2
+    // This takes the text from input album and inserts it into column 2
     row.insertCell(2).innerHTML = document.getElementById('Album').value;
 	console.log('row.insertCell(2) =', document.getElementById('Album').value);
 
