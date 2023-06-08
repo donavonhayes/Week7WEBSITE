@@ -1,6 +1,6 @@
 
 document.getElementById("add").onclick = function () {
-	document.getElementById("new-vehicle-make").focus();
+	document.getElementById("Current Playlist").focus();
 }
 
 window.addEventListener("keydown", function (event) {
