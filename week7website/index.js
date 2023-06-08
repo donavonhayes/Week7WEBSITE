@@ -1,163 +1,106 @@
-constructor(name, grade){
-    this.name=name;
-    this.grade=grade;
-}
-}
 
-class Session {
-constructor(id, name) {
-    this.id=id;
-    this.name=name;
-    this.students=[];
+// This makes the cursor move to 'new-vehicle-make' text input after submitting current data
+// found solution here: https://www.techiedelight.com/set-focus-to-input-text-box-javascript/
+document.getElementById("add").onclick = function () {
+	document.getElementById("new-vehicle-make").focus();
 }
 
-addStudent(student){
-    let index=this.students.indexOf(student);
-    this.students.push(student);
-}
+// This allows the "ENTER" key to be used to submit data from text boxes
+window.addEventListener("keydown", function (event) {
+	if (event.defaultPrevented) {
+		return; // Do nothing if the event was already processed
+	}
+	switch (event.key) {		
+		case "Enter":
+			console.log('-----Enter key was pressed-----');
+			// Do something for "enter" or "return" key press.
+			// allows the "Enter" key to submit all HTML elements tags 'label' to submit data
+			this.document.getElementsByTagName('label');
+			// allows the document to create new container that holds the data in the text boxes
+			this.document.getElementById('add').click();
+			break;
+		default:
+			return; // Quit when this doesn't handle the key event.
+	}
+	// Cancel the default action to avoid it being handled twice
+	event.preventDefault();
+}, true);
 
-deleteStudent(student){
-    let index=this.students.indexOf(student);
-    this.students.splice(index, 1);
-} 
-}
+// creating variable for assignment 
+let id = 0;
 
-let sessions=[];
-let sessionId=0;
+document.getElementById('add').addEventListener('click', () => {
+	// This assigns a new Text node to the variable createdVehicle
+    let createdVehicle = new Text();
+	console.log('variable createdVehicle empty string =', createdVehicle);
+    
+    // This stamps out a new container from the input text which will include the table header and code below
+    let table = document.getElementById('vehicle-table');
+    console.log('variable table = This is new container from input', table);
 
-onClick('new-session', () =>{
-sessions.push(new Session(sessionId++, getValue('new-session-name')));
-drawDOM();
+	// This is row 1 because row 0 is made above, which includes the th as row 0
+    let row = table.insertRow(1);
+    console.log('variable row = This is adding another row of data from text input', row);
+
+	// This sets row id for the new data, will be referenced by delete button later
+    row.setAttribute('id', `item-${id}`);
+	console.log('row.setAttribute: sets new ID to added item', 'id', `item-${id}`)
+
+	// This takes the text from input new-vehicle-make and inserts it into column 0
+    row.insertCell(0).innerHTML = document.getElementById('new-vehicle-make').value;
+	console.log('row.insertCell(0) =', document.getElementById('new-vehicle-make').value);
+
+	// This takes the text from input new-vehicle-model and inserts it into column 1
+    row.insertCell(1).innerHTML = document.getElementById('new-vehicle-model').value;
+	console.log('row.insertCell(1) =', document.getElementById('new-vehicle-model').value);
+
+	// This takes the text from input new-vehicle-year and inserts it into column 2
+    row.insertCell(2).innerHTML = document.getElementById('new-vehicle-year').value;
+	console.log('row.insertCell(2) =', document.getElementById('new-vehicle-year').value);
+
+	// This adds an additional column space for the delete button
+    let actions = row.insertCell(3);
+    console.log('variable "actions" =', actions);
+
+	// This adds the delete button and it's JS functionality into the html code
+	// and increments the id tag assignment
+    actions.appendChild(createDeleteButton(id++));
+	console.log('This appendsChild ', createDeleteButton(id++));
+
+	// The 3 lines below reset text input boxes back to empty strings after submitting data
+    document.getElementById('new-vehicle-make').value = '';
+    document.getElementById('new-vehicle-model').value = '';
+    document.getElementById('new-vehicle-year').value = '';
 });
 
-function onClick(id, action){
-let element=document.getElementById(id);
-element.addEventListener('click', action);
-return element;
-}
+function createDeleteButton(id) {
 
-function getValue(id){
-return document.getElementById(id).value;
-}
+	// This creates a new button element
+    let btn = document.createElement('button');
+	console.log(document.createElement('button'));
 
-function drawDOM(){
-    let sessionDiv=document.getElementById('sessions');
-    clearElement(sessionDiv);
-    for (session of sessions) {
-        let table=createSessionTable(session);
-        let title=document.createElement('h2');
-        title.innerHTML=session.name;
-        title.appendChild(createDeleteSessionButton(session));
-        sessionDiv.appendChild(title);
-        sessionDiv.appendChild(table);
-        for (student of session.students){
-            createStudentRow(session, table, student);
-        }
-        console.log(session.students); //check array as data is entered.  not needed for website to run.
-    }
-}
+	// This inserts the class of 'btn btn-danger' into the button element
+    btn.className = 'btn btn-danger';
+	console.log(btn.className);
 
-function createStudentRow(session, table, student){
-    let row=table.insertRow(2);
-    row.insertCell(0).innerHTML=student.name;
-    row.insertCell(1).innerHTML=student.grade;
-    let actions=row.insertCell(2);
-    actions.appendChild(createDeleteRowButton(session, student));
-    let insrt=row.insertCell(2);  //adding count feature in future project
-    insrt.appendChild(createCountBadge()); //adding count feature in future project
-  }
+	// This assigns an id to the button element
+    btn.id = id;
+	console.log(btn.id);
 
-function createDeleteRowButton(session, student){
-    let btn=document.createElement('button');
-    btn.className='btn btn-secondary';
-    btn.innerHTML='Delete';
-    btn.onclick = ()=> {
-        let index=session.students.indexOf(student);
-        session.students.splice(index, 1);
-        drawDOM();
+	// This adds the text 'Remove' to the button
+    btn.innerHTML = 'Remove';
+	console.log(btn.innerHTML);
+
+	//
+    btn.onclick = () => {
+
+		// this find the row associated with the button and assigns it to variable elementToDelete
+        let elementToDelete = document.getElementById(`item-${id}`);
+				
+		// this removes the corresponding row the delete button is inside of
+        elementToDelete.parentNode.removeChild(elementToDelete);
+		console.log('Deleting :', elementToDelete);
     };
-    return btn;
-}
-
-function createCountBadge(session, student){  //adding count feature in future project
-    let badge=document.createElement('badge');
-    badge.className='badge badge-pill badge-dark';
-    badge.innerHTML='# of 10'; //add length reference
-    return badge
-   }
-
-function createDeleteSessionButton(session){
-    let btn=document.createElement('button');
-    btn.className='btn btn-secondary';
-    btn.innerHTML='Delete Session';
-    btn.onclick=()=> {
-      let index=sessions.indexOf(session);
-      sessions.splice(index, 1);
-      drawDOM();  
-    };
-    return btn;
-}
-
-function createNewStudentButton(session) {
-   let btn=document.createElement('button');
-   btn.className='btn btn-secondary';
-   btn.innerHTML='Create';
-   btn.onclick= () => {
-    session.students.push(new Student(getValue(`name-input-${session.id}`), getValue(`grade-input-${session.id}`))); 
-    drawDOM();
-    };
-    return btn;
-  } 
-
-function createSessionTable(session) {
-  let table=document.createElement('table');
-  table.setAttribute('class', 'table table-success table-striped');
-  let row = table.insertRow(0);
-  let nameColumn=document.createElement('th');
-  let gradeColumn=document.createElement('th');
-  let countColumn=document.createElement('th'); //adding count feature in future project
-  let buttonColumn=document.createElement('th');
-  nameColumn.innerHTML='Student Name';
-  gradeColumn.innerHTML='Grade'; 
-  countColumn.innerHTML='Count'; //adding count feature in future project
-  buttonColumn .innerHTML=""; //added to even out form color distribution
-  row.appendChild(nameColumn);
-  row.appendChild(gradeColumn);
-  row.appendChild(countColumn); //adding count feature in future project
-  row.appendChild(buttonColumn); //added to even out form color distribution
-  let formRow=table.insertRow(1);
-  let nameTh=document.createElement('th');
-  let gradeTh=document.createElement('th');
-  let countTh=document.createElement('th'); //adding count feature in future project
-  let createTh=document.createElement('th');
-  let nameInput=document.createElement('input');
-  nameInput.setAttribute('id', `name-input-${session.id}`);
-  nameInput.setAttribute('type', 'text');
-  nameInput.setAttribute('class', 'form-control');
-  let gradeInput=document.createElement('input');
-  gradeInput.setAttribute('id', `grade-input-${session.id}`);
-  gradeInput.setAttribute('type', 'text');
-  gradeInput.setAttribute('class', 'form-control');
-
-  let countInput=document.createElement('badge'); //adding count feature in future project
-  countInput.setAttribute('id', `count-input-${session.id}`);
-  countInput.setAttribute('type', 'text');
-  countInput.setAttribute('class', 'badge');
-
-  let newStudentButton=createNewStudentButton(session);
-  nameTh.appendChild(nameInput);
-  gradeTh.appendChild(gradeInput);
-  countTh.appendChild(countInput); //adding count feature in future project
-  createTh.appendChild(newStudentButton);
-  formRow.appendChild(nameTh);
-  formRow.appendChild(gradeTh);
-  formRow.appendChild(countTh); //adding count feature in future project
-  formRow.appendChild(createTh);
-  return table;
-}
-
-function clearElement(element){
-    while(element.firstChild) {
-        element.removeChild(element.firstChild);
-    }
+	console.log(btn);
+    return btn;	
 }
