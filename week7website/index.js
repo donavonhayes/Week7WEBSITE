@@ -2,7 +2,7 @@
 // This makes the cursor move to 'new-vehicle-make' text input after submitting current data
 // found solution here: https://www.techiedelight.com/set-focus-to-input-text-box-javascript/
 document.getElementById("add").onclick = function () {
-	document.getElementById("new-vehicle-make").focus();
+	document.getElementById("new-Songs").focus();
 }
 
 // This allows the "ENTER" key to be used to submit data from text boxes
@@ -31,7 +31,7 @@ let id = 0;
 
 document.getElementById('add').addEventListener('click', () => {
 	// This assigns a new Text node to the variable createdVehicle
-    let createdVehicle = new Text();
+    let createdPlaylist = new Text();
 	console.log('variable createdPlaylist empty string =', createdPlaylist);
     
     // This stamps out a new container from the input text which will include the table header and code below
@@ -46,26 +46,20 @@ document.getElementById('add').addEventListener('click', () => {
     row.setAttribute('id', `item-${id}`);
 	console.log('row.setAttribute: sets new ID to added item', 'id', `item-${id}`)
 
-	// This takes the text from input new-vehicle-make and inserts it into column 0
     row.insertCell(0).innerHTML = document.getElementById('new-artists').value;
 	console.log('row.insertCell(0) =', document.getElementById('new-artists').value);
 
-	// This takes the text from input new-vehicle-model and inserts it into column 1
     row.insertCell(1).innerHTML = document.getElementById('new-songs').value;
 	console.log('row.insertCell(1) =', document.getElementById('new-songs').value);
 
 
 
-	// This adds an additional column space for the delete button
     let actions = row.insertCell(2);
     console.log('variable "actions" =', actions);
 
-	// This adds the delete button and it's JS functionality into the html code
-	// and increments the id tag assignment
     actions.appendChild(createDeleteButton(id++));
 	console.log('This appendsChild ', createDeleteButton(id++));
 
-	// The 3 lines below reset text input boxes back to empty strings after submitting data
     document.getElementById('new-artists').value = '';
     document.getElementById('new-songs').value = '';
 });
