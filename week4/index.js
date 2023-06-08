@@ -42,8 +42,6 @@ document.getElementById('add').addEventListener('click', () => {
     row.insertCell(1).innerHTML = document.getElementById('Songs').value;
 	console.log('row.insertCell(1) =', document.getElementById('Song').value);
 
-    row.insertCell(2).innerHTML = document.getElementById('Album').value;
-	console.log('row.insertCell(2) =', document.getElementById('Album').value);
 
     let actions = row.insertCell(3);
     console.log('variable "actions" =', actions);
@@ -56,7 +54,7 @@ document.getElementById('add').addEventListener('click', () => {
 
 
     document.getElementById('Song').value = '';
-    document.getElementById('Album').value = '';
+
 });
 
 function createDeleteButton(id) {
