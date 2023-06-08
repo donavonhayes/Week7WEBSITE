@@ -12,14 +12,14 @@
 
 <body class="container">
     <br>
-    <h1 class="text-center">Add To Vehicle Inventory</h1>
+    <h1 class="text-center">Add Songs to Playlist</h1>
     <div class="card">
         <div class="card-body">
             <div class="row">
                 <div class="col-sm">
                     <div id="my-input" class="form-group"></div>
-                    <label for="new-vehicle-make">Vehicle Make</label>
-                    <input type="text" class="form-control" id="new-vehicle-make" placeholder="Make">
+                    <label for="new-vehicle-make">Artist</label>
+                    <input type="text" class="form-control" id="Artist" placeholder="Artist">
                 </div>
 				
 				<!-- working on adding dropdown menus of car data -->
@@ -35,34 +35,31 @@
 
                 <div class="col-sm">
                     <div class="form-group"></div>
-                    <label for="new-vehicle-model">Vehicle Model</label>
-                    <input type="text" class="form-control" id="new-vehicle-model" placeholder="Model">
+                    <label for="Song">Song</label>
+                    <input type="text" class="form-control" id="Song" placeholder="Song">
                 </div>
                 <div class="col-sm">
                     <div class="form-group"></div>
-                    <label for="new-vehicle-year">Vehicle Year</label>
-                    <input type="text" class="form-control" id="new-vehicle-year" placeholder="Year">
+                    <label for="new-vehicle-year">Album</label>
+                    <input type="text" class="form-control" id="Album" placeholder="Album">
                 </div>
             </div>
             <br>
             <button id="add" class="btn btn-primary form-control">Add</button>
         </div>
-        <h2 class="container text-center">Current Vehicle Inventory</h2>
+        <h2 class="container text-center">Current Playlist</h2>
     </div>
 	<br>
     <table id="vehicle-table" class="table table-light table-striped">
         <tr>
-            <th>Car Make</th>
-            <th>Car Model</th>
-            <th>Vehicle Year</th>
-            <th>Actions</th>
+            <th>Artist</th>
+            <th>Song</th>
+            <th>Album</th>
         </tr>
     </table>
 
     <script src="index.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
 </body>
 
 </html>
