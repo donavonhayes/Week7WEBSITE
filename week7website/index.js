@@ -1,5 +1,5 @@
 document.getElementById("add").onclick = function () {
-	document.getElementById("new-vehicle-make").focus();
+	document.getElementById("new-song").focus();
 }
 
 // This allows the "ENTER" key to be used to submit data from text boxes
@@ -32,7 +32,7 @@ document.getElementById('add').addEventListener('click', () => {
 	console.log('variable createdVehicle empty string =', createdVehicle);
     
     // This stamps out a new container from the input text which will include the table header and code below
-    let table = document.getElementById('vehicle-table');
+    let table = document.getElementById('playlist');
     console.log('variable table = This is new container from input', table);
 
 	// This is row 1 because row 0 is made above, which includes the th as row 0
@@ -44,16 +44,16 @@ document.getElementById('add').addEventListener('click', () => {
 	console.log('row.setAttribute: sets new ID to added item', 'id', `item-${id}`)
 
 	// This takes the text from input new-vehicle-make and inserts it into column 0
-    row.insertCell(0).innerHTML = document.getElementById('new-vehicle-make').value;
-	console.log('row.insertCell(0) =', document.getElementById('new-vehicle-make').value);
+    row.insertCell(0).innerHTML = document.getElementById('new-song').value;
+	console.log('row.insertCell(0) =', document.getElementById('new-song').value);
 
 	// This takes the text from input new-vehicle-model and inserts it into column 1
-    row.insertCell(1).innerHTML = document.getElementById('new-vehicle-model').value;
-	console.log('row.insertCell(1) =', document.getElementById('new-vehicle-model').value);
+    row.insertCell(1).innerHTML = document.getElementById('new-artist').value;
+	console.log('row.insertCell(1) =', document.getElementById('new-artist').value);
 
 	// This takes the text from input new-vehicle-year and inserts it into column 2
-    row.insertCell(2).innerHTML = document.getElementById('new-vehicle-year').value;
-	console.log('row.insertCell(2) =', document.getElementById('new-vehicle-year').value);
+    row.insertCell(2).innerHTML = document.getElementById('new-album').value;
+	console.log('row.insertCell(2) =', document.getElementById('new-album').value);
 
 	// This adds an additional column space for the delete button
     let actions = row.insertCell(3);
@@ -65,9 +65,9 @@ document.getElementById('add').addEventListener('click', () => {
 	console.log('This appendsChild ', createDeleteButton(id++));
 
 	// The 3 lines below reset text input boxes back to empty strings after submitting data
-    document.getElementById('new-vehicle-make').value = '';
-    document.getElementById('new-vehicle-model').value = '';
-    document.getElementById('new-vehicle-year').value = '';
+    document.getElementById('new-song').value = '';
+    document.getElementById('new-artist').value = '';
+    document.getElementById('new-album').value = '';
 });
 
 function createDeleteButton(id) {
