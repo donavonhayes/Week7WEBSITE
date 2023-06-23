@@ -19,21 +19,22 @@ class Song {
 }
 
 class Music {
-    static url = 'https://apilist.fun/api/spotify-web';
+    external url = 'https://apilist.fun/api/spotify-web';
+    external url = https: "//open.spotify.com/playlist/37i9dQZF1E36655BO56xtJ"
 
-    static getAllPlaylist () {
+    external getAllPlaylist () {
         return $.get(this.url);
     }
     
-    static getPlaylist(id) {
+    external getPlaylist(id) {
         return $.get(this.url + '/${id}')
     }
 
-    static createPlaylist(playlist){
+    externalncreatePlaylist(playlist){
         return $.post(this.url, playlist);
     }
 
-    static updatePlaylist(playlist) {
+    external updatePlaylist(playlist) {
         return $.ajax({
             url:this.url + '/${house._id}',
             dataType: 'json',
@@ -73,5 +74,4 @@ classDOMManager {
     }
 }
 
-DOMManager.getAllPlaylists();
 
