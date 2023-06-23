@@ -11,18 +11,19 @@
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 
+
 <body class="container">
     <br>
-    <h1 class="text-center">Add To Vehicle Inventory</h1>
+    <h1 class="text-center">Add to Playlist</h1>
     <div class="card">
         <div class="card-body">
-            <form class="row vehicle-form">
+            <div class="row">
                 <div class="col-sm">
-                    <div id="vehicle-input-form" class="form-group"></div>
-                    <label for="new-vehicle-make">Vehicle Make</label>
-                    <input type="text" class="form-control" id="form-make-input" placeholder="Make">
+                    <div id="my-input" class="form-group"></div>
+                    <label for="new-Artists">Artists</label>
+                    <input type="text" class="form-control" id="new-Artists" placeholder="Artists">
                 </div>
-				
+   
 				<!-- working on adding dropdown menus of car data -->
 				<!-- <div class="input-group mb-3">
 					<label class="input-group-text" for="inputGroupSelect01">Vehicle Make</label>
@@ -36,22 +37,22 @@
 
                 <div class="col-sm">
                     <div class="form-group"></div>
-                    <label for="new-vehicle-model">Vehicle Model</label>
-                    <input type="text" class="form-control" id="form-model-input" placeholder="Model">
+                    <label for="new-Songs">Songs</label>
+                    <input type="text" class="form-control" id="new-Songs" placeholder="Songs">
                 </div>
                 <div class="col-sm">
                     <div class="form-group"></div>
-                    <label for="new-vehicle-year">Vehicle Year</label>
-                    <input type="text" class="form-control" id="form-year-input" placeholder="Year">
-                </div>
-            </form>
+                    <label for="new-Artists">Artists</label>
+                    <input type="text" class="form-control" id="new-artists" placeholder="Artists">
+            </div>
             <br>
-            <button id="add" type="submit" class="btn btn-primary form-control" onclick="onSaveVehicle()">Add</button>
+            <button id="add" type="submit" class="btn btn-primary form-control" onclick="onSavePlaylist()">Add</button>
         </div>
-        <h2 class="container text-center">Current Vehicle Inventory</h2>
+        <h2 class="container text-center">Playlist</h2>
     </div>
-	<br>
-    <table id="table" class="table table-light table-striped">
+    <br>
+    <table id="songs-table" class="table table-light table-striped">
+
         <thead>
             <tr><th>#</th><th>Car Make</th><th>Car Model</th><th>Vehicle Year</th><th>Actions</th></tr>
         </thead>
