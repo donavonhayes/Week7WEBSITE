@@ -50,3 +50,28 @@ class Music {
         });
     }
 }
+
+classDOMManager {
+    static playlist;
+
+    static getAllPlaylist() {
+        PlaylistService.getALLPlaylist().then(Playlists => this.render(Playlists));
+    }
+
+    static render(playlist) {
+        this.playlists= playlists;
+        $('#app').empty();
+        for (let playlist of playlists){
+            $('#app').prepend(
+                '<div id="${playlist._id}" class="card">
+                <div class= "card-header">
+                    <h2>${playlist.name</h2>
+                    </div>
+                    </div>
+            );
+        }
+    }
+}
+
+DOMManager.getAllPlaylists();
+
