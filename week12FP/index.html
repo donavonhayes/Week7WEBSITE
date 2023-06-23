@@ -40,10 +40,7 @@
                     <label for="new-Songs">Songs</label>
                     <input type="text" class="form-control" id="new-Songs" placeholder="Songs">
                 </div>
-                <div class="col-sm">
-                    <div class="form-group"></div>
-                    <label for="new-Artists">Artists</label>
-                    <input type="text" class="form-control" id="new-artists" placeholder="Artists">
+
             </div>
             <br>
             <button id="add" type="submit" class="btn btn-primary form-control" onclick="onSavePlaylist()">Add</button>
@@ -54,32 +51,31 @@
     <table id="songs-table" class="table table-light table-striped">
 
         <thead>
-            <tr><th>#</th><th>Car Make</th><th>Car Model</th><th>Vehicle Year</th><th>Actions</th></tr>
+            <tr><th>#</th><th>Artist</th><th>Song</th><th>Actions</th></tr>
         </thead>
-        <tbody id="vehicles-container">
+        <tbody id="playlist-container">
 
         </tbody>
     </table>
 
-    <div class="modal" tabindex="-1" id="car-edit-modal">
+    <div class="modal" tabindex="-1" id="playlist-edit-modal">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 id="car-modal-title" class="modal-title">Edit Current Vehicle</h5>
+                    <h5 id="car-modal-title" class="modal-title">Add/Delete Playlist</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <!-- Edit/Create Form -->
-                    <label for="name-edit-input" class="form-label">Make:</label>
-                    <input type="text" id="modal-make-input" class="form-control" />
-                    <label for="name-edit-input" class="form-label">Model:</label>
-                    <input type="text" id="modal-model-input" class="form-control" />
-                    <label for="name-edit-input" class="form-label">Year:</label>
-                    <input type="text" id="modal-year-input" class="form-control" />
+                    <label for="name-edit-input" class="form-label">Artists:</label>
+                    <input type="text" id="modal-Artists-input" class="form-control" />
+                    <label for="name-edit-input" class="form-label">Song:</label>
+                    <input type="text" id="modal-Song-input" class="form-control" />
+        
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" onclick="onSaveVehicle()">Save changes</button>
+                    <button type="button" class="btn btn-primary" onclick="onSavePlaylist()">Save changes</button>
                 </div>
             </div>
         </div>
