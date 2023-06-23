@@ -5,6 +5,12 @@ class Playlist {
     }
 }
 
+addSong(artist, album) {
+    this.songs.push(new Song(artist, album));
+    }
+}
+
+
 class Song {
     constructor(artist, album) {
         this.artist=artist;
