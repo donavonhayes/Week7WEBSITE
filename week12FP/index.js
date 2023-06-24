@@ -5,21 +5,20 @@
 const carList = [
 	{
 		id: 0,
-		make: "Ford",
-		model: "Fiesta",
-		year: "2015"
+		artist: "Drake",
+		song: "Finesse",
+		
 	},
 	{
 		id: 1,
-		make: "Geo",
-		model: "Metro",
-		year: "1992"
+		artist: "Nicki Minaj",
+		song: "Barbie World",
+		
 	},
 	{
 		id: 2,
-		make: "Toyota",
-		model: "Celica All-Trac Turbo",
-		year: "1993"
+		artist: "Ice Spice",
+		song: "Princess Diana",
 	}
 ];
 
@@ -30,57 +29,53 @@ $(document).ready(function () {
 
 $(() => {
 	
-	renderInventoryList()
+	renderPlaylist()
 })
 
-const $vehiclesContainer = $("#vehicles-container");
+const $PlaylistContainer = $("#playlist-container");
 
-function renderInventoryList() {
-	$vehiclesContainer.empty()
-	$vehiclesContainer.append(carList.map(car => renderCar(car)))
+function renderPlayList() {
+	$playlistContainer.empty()
+	$playlistContainer.append(songs.map(car => renderSongs(songs)))
 }
 
 
-function renderCar(carParam) {
+function renderSongs(SongsParam) {
 
 	return $("<tr/>").append(
-		$("<td/>").text(carParam.id + 1).attr("id", `${carParam.id}`),
-		$("<td/>").text(carParam.make),
-		$("<td/>").text(carParam.model),
-		$("<td/>").text(carParam.year),
+		$("<td/>").text(songParam.id + 1).attr("id", `${songParam.id}`),
+		$("<td/>").text(songParam.artist),
+		$("<td/>").text(songParam.song),
 		$("<td/>").addClass("d-grid gap-2 d-md-flex justify-content-md").append(
-			$("<button>").addClass("btn btn-primary me-4").text("Edit").on("click", () => onStartVehicleEdit(carParam.id)),
-			$("<button/>").addClass("btn btn-danger me-4")/*.attr("id", `${carParam.id}`)*/.text("Delete").on("click", () => onDeleteButtonClick(carParam.id))			
+			$("<button>").addClass("btn btn-primary me-4").text("Edit").on("click", () => onStartPlaylistEdit(songParam.id)),
+			$("<button/>").addClass("btn btn-danger me-4")/*.attr("id", `${songParam.id}`)*/.text("Delete").on("click", () => onDeleteButtonClick(songParam.id))			
 		)
 	)
 }
 
 
-const carModal = new bootstrap.Modal('#car-edit-modal');
-const $carModalTitle = $("#car-modal-title");
-const $formMakeInput = $("#form-make-input");
-const $formModelInput = $("#form-model-input");
-const $formYearInput = $("#form-year-input");
-const $modalMakeInput = $("#modal-make-input");
-const $modalModelInput = $("#modal-model-input");
-const $modalYearInput = $("#modal-year-input");
+const PlaylistModal = new bootstrap.Modal('#playlist-edit-modal');
+const $PlaylistModalTitle = $("#playlist-modal-title");
+const $formArtistInput = $("#form-artist-input");
+const $formSongInput = $("#form-song-input");
+const $modalArtistInput = $("#modal-artist-input");
+const $modalSongInput = $("#modal-song-input");
 
-const $addCarId = $("#id")
+const $addPlaylistId = $("#id")
 
-let editCarId = null;
+let editplaylistId = null;
 
-function onSaveVehicle() {
+function onSavePlaylist() {
 	console.log('saving data inside of this function')
-	if (editCarId === null) {
+	if (editPlaylistId === null) {
 
-		carList.push({
+		PlaylistList.push({
 			//* https://stackoverflow.com/questions/64926946/add-an-autoincrementing-number-in-an-object-to-the-push
 			//* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator
 			//  using optional chaining operator (?)
-			id: carList.length ? carList[carList.length - 1].id + 1 : 0,
-			make: $formMakeInput.val(),
-			model: $formModelInput.val(),
-			year: $formYearInput.val()
+			id: PlayList.length ? playList[playList.length - 1].id + 1 : 0,
+			artist: $formartistInput.val(),
+			song: $formsongInput.val(),
 		});
 		console.log('This is the added ID:', carList.length ? carList[carList.length - 1].id + 1 : 0);
 		console.log('This is the added Make:', $formMakeInput.val());
