@@ -1,15 +1,15 @@
 {
-  "name": "test-3",
+  "name": "week12project",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "WeekJavascript.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "jquery": "^3.6.0"
+    "bootstrap": "^5.2.3",
+    "jquery": "^3.6.4"
   }
 }
