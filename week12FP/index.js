@@ -1,145 +1,73 @@
-// Week 10 Assignment
-// Jair Alcon
-
-// I hard coded some data for testing purposes
-const carList = [
-	{
-		id: 0,
-		artist: "Drake",
-		song: "Finesse",
-		
-	},
-	{
-		id: 1,
-		artist: "Nicki Minaj",
-		song: "Barbie World",
-		
-	},
-	{
-		id: 2,
-		artist: "Ice Spice",
-		song: "Princess Diana",
-	}
-];
 
 
-$(document).ready(function () {
-	$("#form-make-input").focus();
-});
+let addBtn = document.getElementById('add_btn'); // variable to hold the element for add_btn
+addBtn.addEventListener('click', addSong); // Event listener to add a song when button is clicked
+let parentList = document.getElementById('parent-List'); // creates a variable for the parent list
 
-$(() => {
-	
-	renderPlaylist()
-})
+// function to add a song to the setlist app
+function addSong(e) {
+   if (parentList.children.length > 0 && parentList.children[0].className == "emptyMsg") {
+       parentList.children[0].remove();
+   }
+   let currentBtn = e.currentTarget;
+   let currentInput = currentBtn.previousElementSibling;
+   let currentSongName = currentInput.value;
+   currentInput.value = "";
 
-const $PlaylistContainer = $("#playlist-container");
+   // if loop to handle empty form
+   if (currentSongName.length <= 0) {
+       let newEmptyMsg = document.createElement("h5");
+       newEmptyMsg.classList.add("emptyMsg");
+       newEmptyMsg.textContent = "Nothing is added.";
+       parentList.appendChild(newEmptyMsg);
+     
+   }
+   // handles a string from the input and renders the DOM
+   else {
+       let newLi = document.createElement('li');
+       // newLi.classList.add('list-group-item');
+       newLi.className = "list-group-item d-flex justify-content-between";
+       newLi.innerHTML = `<h5 class="flex-grow-1">${currentSongName}</h5>
+           <button class="btn btn-dark mx-3" onclick="editSong(this)" >Edit</button>
+           <button class="btn btn-danger" onclick="removeSong(this)">Remove</button>`
 
-function renderPlayList() {
-	$playlistContainer.empty()
-	$playlistContainer.append(songs.map(car => renderSongs(songs)))
+
+       parentList.appendChild(newLi);
+     
+   }
+  
 }
 
-
-function renderSongs(SongsParam) {
-
-	return $("<tr/>").append(
-		$("<td/>").text(songParam.id + 1).attr("id", `${songParam.id}`),
-		$("<td/>").text(songParam.artist),
-		$("<td/>").text(songParam.song),
-		$("<td/>").addClass("d-grid gap-2 d-md-flex justify-content-md").append(
-			$("<button>").addClass("btn btn-primary me-4").text("Edit").on("click", () => onStartPlaylistEdit(songParam.id)),
-			$("<button/>").addClass("btn btn-danger me-4")/*.attr("id", `${songParam.id}`)*/.text("Delete").on("click", () => onDeleteButtonClick(songParam.id))			
-		)
-	)
+// handles the delete function
+function removeSong(currElement) {
+   currElement.parentElement.remove();
+   if (parentList.children.length <= 0) {
+       let newEmptyMsg = document.createElement("h5");
+       newEmptyMsg.classList.add("emptyMsg");
+       newEmptyMsg.textContent = "Nothing is here. Please Add a Song";
+       parentList.appendChild(newEmptyMsg);
+   }
 }
 
-
-const PlaylistModal = new bootstrap.Modal('#playlist-edit-modal');
-const $PlaylistModalTitle = $("#playlist-modal-title");
-const $formArtistInput = $("#form-artist-input");
-const $formSongInput = $("#form-song-input");
-const $modalArtistInput = $("#modal-artist-input");
-const $modalSongInput = $("#modal-song-input");
-
-const $addPlaylistId = $("#id")
-
-let editplaylistId = null;
-
-function onSavePlaylist() {
-	console.log('saving data inside of this function')
-	if (editPlaylistId === null) {
-
-		PlaylistList.push({
-			//* https://stackoverflow.com/questions/64926946/add-an-autoincrementing-number-in-an-object-to-the-push
-			//* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator
-			//  using optional chaining operator (?)
-			id: PlayList.length ? playList[playList.length - 1].id + 1 : 0,
-			artist: $formartistInput.val(),
-			song: $formsongInput.val(),
-		});
-		console.log('This is the added ID:', carList.length ? carList[carList.length - 1].id + 1 : 0);
-		console.log('This is the added Make:', $formMakeInput.val());
-		console.log('This is the added Model:', $formModelInput.val());
-		console.log('This is the added Year:', $formYearInput.val());
-		$formMakeInput.val('');
-		$formModelInput.val('');
-		$formYearInput.val('');
-
-		let index = -1;
-		console.log('Added this vehicle to table:', carList.at(index));
-	}
-	else {
-\		const car = carList.find(car => car.id === editCarId);
-\		car.make = $modalMakeInput.val();
-		car.model = $modalModelInput.val();
-		car.year = $modalYearInput.val();
-		console.log('Car values were changed to:', car)
-	}
-
-]	renderInventoryList();
-	carModal.hide();
+// edits current element
+function editSong(currElement) {
+   if (currElement.textContent == "Done") {
+       currElement.textContent = "Edit";
+       let currSongName = currElement.previousElementSibling.value;
+       let currHeading = document.createElement('h5');
+       currHeading.className = "flex-grow-1";
+       currHeading.textContent = currSongName;
+       currElement.parentElement.replaceChild(currHeading, currElement.previousElementSibling);
+   }
+   else {
+       currElement.textContent = "Done";
+       let currSongName = currElement.previousElementSibling.textContent;
+       let currInput = document.createElement('input');
+       currInput.type = "text";
+       currInput.placeholder = "Song Title";
+       currInput.className = "form-control";
+       currInput.value = currSongName;
+       currElement.parentElement.replaceChild(currInput, currElement.previousElementSibling);
+   }
 }
-
-function onStartVehicleEdit(vehicleId) {
-	console.log('starting Edit process with ID:', vehicleId);
-]	const car = carList.find(car => car.id === vehicleId);
-	console.log('We are editing:', car)
-]	carModal.show();
-\]	$carModalTitle.text("Edit: " + car.make + ' ' + car.model + ' ' + car.year);
-]	$modalMakeInput.val(car.make),
-	$modalModelInput.val(car.model),
-	$modalYearInput.val(car.year)
-]	editCarId = car.id;
-	console.log(editCarId);
-}
-
-function onDeleteButtonClick(carId) {
-	console.log('we are inside the delete function', (carId))
-	const indexToDelete = carList.findIndex(car => car.id === carId)
-\	let index = 1;
-	console.log('Deleting this vehicle from table:', carList.at(index));
-\	carList.splice(indexToDelete, 1);
-	renderInventoryList();
-	// IF YOU'RE USING AN API: also let the backend know
-	// fetch("http://localhost:3001/products/" + carId, { method: "DELETE" })
-}
-
-]$("#add").click(function () {
-	$formMakeInput.focus();
-});
-
-$(document).ready(() => {
-	$('.vehicle-form').on('submit', () => {
-
-		return false;
-	});
-});
-$('.vehicle-form').keypress((e) => {
-
-	if (e.which === 13) {
-		onSaveVehicle();
-		console.log('Form Successfully Submitted');
-	}
-	$("#form-make-input").focus();
-})
 
