@@ -3,7 +3,7 @@ let addBtn = document.getElementById('add_btn'); // variable to hold the element
 addBtn.addEventListener('click', addSong); // Event listener to add a song when button is clicked
 let parentList = document.getElementById('parent-List'); // creates a variable for the parent list
 
-// function to add a song to the setlist app
+// function to add a song to the Playlist app
 function addSong(e) {
     if (parentList.children.length > 0 && parentList.children[0].className == "emptyMsg") {
         parentList.children[0].remove();
